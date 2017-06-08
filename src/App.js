@@ -47,7 +47,9 @@ class App extends Component {
   }
   
   createMarkup(text) {
-    let clean = sanitizeHtml(text)
+    let clean = sanitizeHtml(text, {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ])
+    })
     return {__html: clean}
   }
 
