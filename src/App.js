@@ -57,7 +57,7 @@ class App extends Component {
           <h2>Name: {this.state.name}</h2>
           <p>Description: {this.state.description}</p>
           <p>Namespace: {this.state.namespace}</p>
-          <p>API: <a href={this.state.api} target="_blank">{this.state.api}</a></p>
+          <p>API: <a href={this.state.api} target="_blank" rel="noopener noreferrer">{this.state.api}</a></p>
         </div>
 
         <div>
