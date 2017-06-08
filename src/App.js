@@ -16,14 +16,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const varietyUrl = 'http://variety.com/wp-json/wp/v2/posts',
-        mozUrl = 'https://blog.mozilla.org/wp-json/wp/v2/posts'
-
-    // this.fetchPosts(mozUrl)
-
     urls.forEach((value, key) => {
-      console.log(`Key: ${key}, Value: ${value} \n`)
-      // value.concat('/wp-json/wp/v2/posts')
+      // TODO use key for headings, selecting/navigating to different sources
       this.fetchPosts(value.concat('/wp-json/wp/v2/posts'))
     })
   }
