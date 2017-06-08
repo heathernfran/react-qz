@@ -43,6 +43,10 @@ class App extends Component {
       })
   }
   
+  createMarkup(text) {
+    return {__html: text};
+  }
+  
   render() {
     return (
       <div className="App">
@@ -59,8 +63,8 @@ class App extends Component {
           {this.state.posts.map((value, key) => {
             return (
               <div key={key}>
-                <h2>{value.title.rendered}</h2>
-                <p>{value.content.rendered}</p>
+                <h2 dangerouslySetInnerHTML={this.createMarkup(value.title.rendered)} />
+                <p dangerouslySetInnerHTML={this.createMarkup(value.content.rendered)} />
               </div>
             )
           })}
