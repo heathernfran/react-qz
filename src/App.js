@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import sanitizeHtml from 'sanitize-html-react';
 import './App.css';
 
 class App extends Component {
@@ -46,7 +47,8 @@ class App extends Component {
   }
   
   createMarkup(text) {
-    return {__html: text}
+    let clean = sanitizeHtml(text)
+    return {__html: clean}
   }
 
   render() {
