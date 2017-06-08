@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import sanitizeHtml from 'sanitize-html-react';
+import Post from './Post';
+
 import './App.css';
 
 class App extends Component {
@@ -46,13 +47,6 @@ class App extends Component {
 
   }
   
-  createMarkup(text) {
-    let clean = sanitizeHtml(text, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ])
-    })
-    return {__html: clean}
-  }
-
   render() {
     return (
       <div className="App">
@@ -68,10 +62,11 @@ class App extends Component {
           <h1>Mozilla Blog</h1>
           {this.state.posts.map((value, key) => {
             return (
-              <div key={key}>
-                <h2 dangerouslySetInnerHTML={this.createMarkup(value.title.rendered)} />
-                <p dangerouslySetInnerHTML={this.createMarkup(value.content.rendered)} />
-              </div>
+              <Post 
+                key={key}
+                title={value.title.rendered} 
+                content={value.content.rendered} 
+              />
             )
           })}
         </div>
