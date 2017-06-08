@@ -10,16 +10,17 @@ class App extends Component {
       description: '',
       namespace: '',
       api: '',
+      posts: [],
     }
   }
   
   componentDidMount() {
-    const jsonUrl = 'https://qz.com/wp-json'
+    const qzUrl = 'https://qz.com/wp-json',
+        varietyUrl = 'http://variety.com/wp-json/wp/v2/posts'
     
-    fetch(jsonUrl)
+    fetch(qzUrl)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         this.setState({
           results: json,
           name: json.name,
@@ -31,6 +32,15 @@ class App extends Component {
       .catch((error) => {
         console.error(`Error in response: ${error}`)
       })
+
+    fetch(varietyUrl)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json)
+        this.setState({
+          posts: json,
+        })
+      })
   }
   
   render() {
@@ -41,9 +51,21 @@ class App extends Component {
           <h2>Name: {this.state.name}</h2>
           <p>Description: {this.state.description}</p>
           <p>Namespace: {this.state.namespace}</p>
-          <p>API: {this.state.api}</p>
+          <p>API: <a href={this.state.api} target="_blank">{this.state.api}</a></p>
         </div>
-        
+
+        <div>
+          <h1>Variety</h1>
+          {this.state.posts.map((value, key) => {
+            return (
+              <div key={key}>
+                <h2>{value.title.rendered}</h2>
+                <p>{value.content.rendered}</p>
+              </div>
+            )
+          })}
+        </div>
+
       </div>
     );
   }
