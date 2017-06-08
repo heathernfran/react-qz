@@ -5200,14 +5200,6 @@ sanitize-html-react@^1.13.0:
     regexp-quote "0.0.0"
     xtend "^4.0.0"
 
-sanitize-html@^1.14.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-1.14.1.tgz#730ffa2249bdf18333effe45b286173c9c5ad0b8"
-  dependencies:
-    htmlparser2 "^3.9.0"
-    regexp-quote "0.0.0"
-    xtend "^4.0.0"
-
 sax@^1.2.1, sax@~1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
