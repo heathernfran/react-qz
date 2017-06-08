@@ -16,8 +16,9 @@ class App extends Component {
   
   componentDidMount() {
     const qzUrl = 'https://qz.com/wp-json',
-        varietyUrl = 'http://variety.com/wp-json/wp/v2/posts'
-    
+        varietyUrl = 'http://variety.com/wp-json/wp/v2/posts',
+        mozUrl = 'https://blog.mozilla.org/wp-json/wp/v2/posts'
+
     fetch(qzUrl)
       .then((response) => response.json())
       .then((json) => {
@@ -33,7 +34,7 @@ class App extends Component {
         console.error(`Error in response: ${error}`)
       })
 
-    fetch(varietyUrl)
+    fetch(mozUrl)
       .then((response) => response.json())
       .then((json) => {
         console.log(json)
@@ -41,12 +42,13 @@ class App extends Component {
           posts: json,
         })
       })
+
   }
   
   createMarkup(text) {
-    return {__html: text};
+    return {__html: text}
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -59,7 +61,7 @@ class App extends Component {
         </div>
 
         <div>
-          <h1>Variety</h1>
+          <h1>Mozilla Blog</h1>
           {this.state.posts.map((value, key) => {
             return (
               <div key={key}>
