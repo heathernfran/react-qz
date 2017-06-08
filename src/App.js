@@ -14,16 +14,21 @@ class App extends Component {
   componentDidMount() {
     const varietyUrl = 'http://variety.com/wp-json/wp/v2/posts',
         mozUrl = 'https://blog.mozilla.org/wp-json/wp/v2/posts'
-
-    fetch(mozUrl)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json)
-        this.setState({
-          posts: json,
-        })
-      })
-
+    
+    this.fetchPosts(mozUrl)
+  }
+  
+  fetchPosts(url) {
+    return fetch(url)
+            .then((response) => response.json())
+            .then((json) => {
+              this.setState({
+                posts: json
+              })
+            })
+            .catch((error) => {
+              console.error(`Error in response: ${error}`)
+            })
   }
   
   render() {
