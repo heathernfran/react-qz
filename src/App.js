@@ -19,8 +19,7 @@ class App extends Component {
     urls.forEach((v, k) => {
       sourceArray.push(
         <li key={k}>
-          Source: {k}
-          <button id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</button>
+          {k} <button id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</button>
         </li>
       )
     })
