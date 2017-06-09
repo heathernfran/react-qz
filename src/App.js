@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Posts from './Posts';
+import { urls } from './urls';
 
 import './App.css';
-
-const urls = new Map()
-  .set('Mozilla', 'https://blog.mozilla.org')
-  .set('Variety', 'http://variety.com')
 
 class App extends Component {
   constructor(props) {
