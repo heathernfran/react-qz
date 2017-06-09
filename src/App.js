@@ -3,7 +3,7 @@ import Post from './Post';
 
 import './App.css';
 
-let urls = new Map()
+const urls = new Map()
   .set('Mozilla', 'https://blog.mozilla.org')
   .set('Variety', 'http://variety.com')
 
@@ -35,23 +35,22 @@ class App extends Component {
             })
   }
 
+  showSources() {
+    let sourceArray = []
+    urls.forEach((v, k) => {
+      sourceArray.push(<li key={k}>{k}</li>)
+    })
+    return sourceArray
+  }
+
   render() {
+    const sourceList = urls.forEach((v, k) => <li>{k}</li>)
+    const sourceNames = this.showSources()
+
     return (
       <div className="App">
-
-        <div>
-          <h1>Mozilla Blog</h1>
-          {this.state.posts.map((value, key) => {
-            return (
-              <Post
-                key={key}
-                title={value.title.rendered}
-                content={value.content.rendered}
-              />
-            )
-          })}
-        </div>
-
+        <h1>News sources available</h1>
+          <ul>{sourceNames}</ul>
       </div>
     );
   }
