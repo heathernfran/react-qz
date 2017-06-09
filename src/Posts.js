@@ -33,7 +33,7 @@ class Posts extends Component {
         {this.state.posts.map((value, key) => {
           return (
             <Post
-              key={key}
+              key={value.id}
               title={value.title.rendered}
               content={value.content.rendered}
             />

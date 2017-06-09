@@ -12,7 +12,7 @@ class Post extends Component {
 
   render() {
     return (
-      <div key={this.props.key}>
+      <div key={this.props.id}>
         <h2 dangerouslySetInnerHTML={this.createMarkup(this.props.title)} />
         <p dangerouslySetInnerHTML={this.createMarkup(this.props.content)} />
       </div>
