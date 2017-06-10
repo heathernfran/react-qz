@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'muicss/lib/react/button';
+import Panel from 'muicss/lib/react/panel';
 import Posts from './Posts';
 import { urls } from './urls';
 
@@ -41,11 +42,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>News sources available</h1>
-          <ul className='mui-list--unstyled'>{sourceNames}</ul>
+          <ul className='mui-list--inline'>{sourceNames}</ul>
           {
             this.state.visible ?
             <Posts url={this.state.url} /> :
-            <span>Click news source</span>
+            <Panel className='mui--z3'>Click news source</Panel>
           }
       </div>
     );
