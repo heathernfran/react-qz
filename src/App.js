@@ -20,8 +20,8 @@ class App extends Component {
     urls.forEach((v, k) => {
       sourceArray.push(
         <List.Item key={k}>
-          {k} <Button basic size='small' id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</Button>
-      </List.Item>
+          <Button basic size='small' id={k} onClick={(e) => this.showPosts(e, v)}>{k}</Button>
+        </List.Item>
       )
     })
     return sourceArray
