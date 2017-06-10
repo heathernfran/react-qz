@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Container from 'muicss/lib/react/container';
 import Post from './Post';
 
+const postsEndpoint = '/wp-json/wp/v2/posts'
+
 class Posts extends Component {
   constructor(props) {
     super(props)
@@ -10,8 +12,12 @@ class Posts extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchPosts(this.props.url.concat(postsEndpoint))
+  }
+
   componentDidUpdate() {
-    this.fetchPosts(this.props.url.concat('/wp-json/wp/v2/posts'))
+    this.fetchPosts(this.props.url.concat(postsEndpoint))
   }
 
   fetchPosts(url) {
@@ -31,7 +37,7 @@ class Posts extends Component {
   render() {
     return (
       <Container>
-        {this.state.posts.map((value, key) => {
+        {this.state.posts.map((value) => {
           return (
             <Post
               key={value.id}
