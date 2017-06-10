@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Post from './Post'
+import React, { Component } from 'react';
+import Container from 'muicss/lib/react/container';
+import Post from './Post';
 
 class Posts extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Posts extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container>
         {this.state.posts.map((value, key) => {
           return (
             <Post
@@ -39,7 +40,7 @@ class Posts extends Component {
             />
           )
         })}
-      </div>
+      </Container>
     )
   }
 }

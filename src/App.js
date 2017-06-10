@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'muicss/lib/react/button';
 import Posts from './Posts';
 import { urls } from './urls';
 
@@ -19,7 +20,7 @@ class App extends Component {
     urls.forEach((v, k) => {
       sourceArray.push(
         <li key={k}>
-          {k} <button id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</button>
+          {k} <Button variant='raised' size='small' id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</Button>
         </li>
       )
     })
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>News sources available</h1>
-          <ul>{sourceNames}</ul>
+          <ul className='mui-list--unstyled'>{sourceNames}</ul>
           {
             this.state.visible ?
             <Posts url={this.state.url} /> :
