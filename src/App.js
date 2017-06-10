@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, List } from 'semantic-ui-react';
+import { Button, List, Segment } from 'semantic-ui-react';
 import Posts from './Posts';
 import { urls } from './urls';
 
@@ -41,11 +41,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>News sources available</h1>
-          <List>{sourceNames}</List>
+          <List horizontal>{sourceNames}</List>
           {
             this.state.visible ?
             <Posts url={this.state.url} /> :
-            <span>Click news source</span>
+            <Segment raised>Click news source</Segment>
           }
       </div>
     );
