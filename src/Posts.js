@@ -35,8 +35,8 @@ class Posts extends Component {
 
   render() {
     return (
-      <div className="App">
-        {this.state.posts.map((value, key) => {
+      <div>
+        {this.state.posts.map((value) => {
           return (
             <Post
               key={value.id}
