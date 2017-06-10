@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, List } from 'semantic-ui-react';
 import Posts from './Posts';
 import { urls } from './urls';
 
@@ -18,9 +19,9 @@ class App extends Component {
     let sourceArray = []
     urls.forEach((v, k) => {
       sourceArray.push(
-        <li key={k}>
-          {k} <button id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</button>
-        </li>
+        <List.Item key={k}>
+          {k} <Button basic size='small' id={k} onClick={(e) => this.showPosts(e, v)}>Show posts</Button>
+      </List.Item>
       )
     })
     return sourceArray
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>News sources available</h1>
-          <ul>{sourceNames}</ul>
+          <List>{sourceNames}</List>
           {
             this.state.visible ?
             <Posts url={this.state.url} /> :

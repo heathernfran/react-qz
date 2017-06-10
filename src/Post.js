@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import sanitizeHtml from 'sanitize-html-react';
+import { Container, Header } from 'semantic-ui-react';
 
 class Post extends Component {
 
@@ -12,10 +13,12 @@ class Post extends Component {
 
   render() {
     return (
-      <div key={this.props.id}>
-        <h2 dangerouslySetInnerHTML={this.createMarkup(this.props.title)} />
+      <Container key={this.props.id}>
+        <Header as='h2'>
+          <span dangerouslySetInnerHTML={this.createMarkup(this.props.title)} />
+        </Header>
         <p dangerouslySetInnerHTML={this.createMarkup(this.props.content)} />
-      </div>
+      </Container>
     )
   }
 }
