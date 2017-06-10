@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Post from './Post'
 
+const postsEndpoint = '/wp-json/wp/v2/posts'
+
 class Posts extends Component {
   constructor(props) {
     super(props)
@@ -9,8 +11,12 @@ class Posts extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchPosts(this.props.url.concat(postsEndpoint))
+  }
+
   componentDidUpdate() {
-    this.fetchPosts(this.props.url.concat('/wp-json/wp/v2/posts'))
+    this.fetchPosts(this.props.url.concat(postsEndpoint))
   }
 
   fetchPosts(url) {
