@@ -9,7 +9,7 @@ class Posts extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.fetchPosts(this.props.url.concat('/wp-json/wp/v2/posts'))
   }
 
