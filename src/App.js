@@ -43,7 +43,7 @@ class App extends Component {
           <ul>{sourceNames}</ul>
           {
             this.state.visible ?
-            <Posts url={this.state.url} /> :
+            <Posts {...this.state} /> :
             <span>Click news source</span>
           }
       </div>
