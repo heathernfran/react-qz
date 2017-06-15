@@ -7,6 +7,7 @@ class Sources extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      source: '',
       url: '',
       visible: false,
     }
@@ -18,16 +19,17 @@ class Sources extends Component {
     urls.forEach((v, k) => {
       sourceArray.push(
         <List.Item key={k}>
-          <Button basic size='small' id={k} onClick={(e) => this.showPosts(e, v)}>{k}</Button>
+          <Button basic size='small' id={k} onClick={(e) => this.showPosts(e, v, k)}>{k}</Button>
         </List.Item>
       )
     })
     return sourceArray
   }
 
-  showPosts(e, valueUrl) {
+  showPosts(e, valueUrl, keySource) {
     e.preventDefault()
     this.setState({
+      source: keySource,
       url: valueUrl,
       visible: true,
     })
@@ -42,7 +44,12 @@ class Sources extends Component {
           <List horizontal>{sourceNames}</List>
           {
             this.state.visible ?
-            <Posts url={this.state.url} /> :
+            (
+              <div>
+                <h2>{this.state.source}</h2>
+                <Posts {...this.state} />
+              </div>
+            ) :
             <Segment raised>Click news source</Segment>
           }
       </div>
