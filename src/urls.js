@@ -8,3 +8,8 @@ export const urls = new Map()
   .set('Time', 'http://time.com')
   .set('SI National Museum of African Art', 'https://africa.si.edu')
   .set('VentureBeat', 'https://venturebeat.com')
+  // Blockchain news
+  .set('CoinDesk', 'http://www.coindesk.com')
+  .set('NewsBTC', 'http://www.newsbtc.com')
+  .set('The Merkle', 'https://themerkle.com')
+  .set('TrustNodes', 'http://www.trustnodes.com')
