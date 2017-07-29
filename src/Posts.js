@@ -20,7 +20,7 @@ class Posts extends Component {
   }
 
   fetchPosts(url) {
-    return fetch(url, {mode: 'no-cors'})
+    return fetch(url)
             .then((response) => response.json())
             .then((json) => {
               this.setState({
