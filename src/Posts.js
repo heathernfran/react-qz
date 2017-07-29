@@ -16,12 +16,14 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    this._fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
+    this._fetchPosts(this._buildURL(crossOrigin, this.props.url, postsEndpoint))
   }
 
   componentDidUpdate() {
-    this._fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
+    this._fetchPosts(this._buildURL(crossOrigin, this.props.url, postsEndpoint))
   }
+
+  _buildURL = (origin, url, endpoint) => origin.concat(url).concat(endpoint)
 
   _fetchPosts(url) {
     return fetch(url)
