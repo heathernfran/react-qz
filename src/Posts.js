@@ -16,14 +16,14 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    this.fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
+    this._fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
   }
 
   componentDidUpdate() {
-    this.fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
+    this._fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
   }
 
-  fetchPosts(url) {
+  _fetchPosts(url) {
     return fetch(url)
             .then((response) => response.json())
             .then((json) => {
