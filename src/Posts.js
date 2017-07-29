@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Container from 'muicss/lib/react/container';
 import Post from './Post';
 
-const postsEndpoint = '/wp-json/wp/v2/posts'
+// Enable cross-origin resource sharing (CORS)
+// https://cors-anywhere.herokuapp.com/
+const crossOrigin = 'https://cors-anywhere.herokuapp.com/',
+      postsEndpoint = '/wp-json/wp/v2/posts'
 
 class Posts extends Component {
   constructor(props) {
@@ -13,11 +16,11 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    this.fetchPosts(this.props.url.concat(postsEndpoint))
+    this.fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
   }
 
   componentDidUpdate() {
-    this.fetchPosts(this.props.url.concat(postsEndpoint))
+    this.fetchPosts(crossOrigin.concat(this.props.url).concat(postsEndpoint))
   }
 
   fetchPosts(url) {
