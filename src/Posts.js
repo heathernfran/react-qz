@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Post from './Post'
+import React, { Component } from 'react';
+import Container from 'muicss/lib/react/container';
+import Post from './Post';
 
 const postsEndpoint = '/wp-json/wp/v2/posts'
 
@@ -35,7 +36,7 @@ class Posts extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         {this.state.posts.map((value) => {
           return (
             <Post
@@ -45,7 +46,7 @@ class Posts extends Component {
             />
           )
         })}
-      </div>
+      </Container>
     )
   }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Button from 'muicss/lib/react/button';
+import Panel from 'muicss/lib/react/panel';
 import Posts from './Posts';
 import { urls } from './urls';
 
@@ -18,7 +20,7 @@ class Sources extends Component {
     urls.forEach((v, k) => {
       sourceArray.push(
         <li key={k}>
-          <button id={k} onClick={(e) => this.showPosts(e, v, k)}>{k}</button>
+          <Button variant='raised' size='small' id={k} onClick={(e) => this.showPosts(e, v, k)}>{k}</Button>
         </li>
       )
     })
@@ -40,7 +42,7 @@ class Sources extends Component {
     return (
       <div>
         <h1>News sources available</h1>
-          <ul>{sourceNames}</ul>
+          <ul className='mui-list--inline'>{sourceNames}</ul>
           {
             this.state.visible ?
             (
@@ -49,7 +51,7 @@ class Sources extends Component {
                 <Posts {...this.state} />
               </div>
             ) :
-            <span>Click news source</span>
+            <Panel className='mui--z3'>Click news source</Panel>
           }
       </div>
     );
