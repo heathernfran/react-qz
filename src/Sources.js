@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from 'muicss/lib/react/button';
 import Panel from 'muicss/lib/react/panel';
 import Posts from './Posts';
-import { urls } from './urls';
+import urls from './urls';
 
 class Sources extends Component {
   constructor(props) {

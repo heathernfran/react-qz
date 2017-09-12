@@ -1,4 +1,4 @@
-export const urls = new Map()
+const urls = new Map()
   .set('Mozilla', 'https://blog.mozilla.org')
   .set('Variety', 'https://variety.com')
   .set('Bloomberg', 'https://www.bloomberg.com/professional')
@@ -13,3 +13,5 @@ export const urls = new Map()
   .set('NewsBTC', 'https://www.newsbtc.com')
   .set('The Merkle', 'https://themerkle.com')
   .set('TrustNodes', 'https://www.trustnodes.com')
+
+export default urls
