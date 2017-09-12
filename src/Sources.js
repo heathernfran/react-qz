@@ -12,7 +12,6 @@ class Sources extends Component {
       url: '',
       visible: false,
     }
-    this.showPosts = this.showPosts.bind(this)
   }
 
   showSources() {
