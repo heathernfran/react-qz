@@ -3,7 +3,7 @@ import sanitizeHtml from 'sanitize-html-react';
 
 class Post extends Component {
 
-  createMarkup(text) {
+  _createMarkup(text) {
     let clean = sanitizeHtml(text, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ])
     })
@@ -13,8 +13,8 @@ class Post extends Component {
   render() {
     return (
       <div key={this.props.id}>
-        <h2 dangerouslySetInnerHTML={this.createMarkup(this.props.title)} />
-        <p dangerouslySetInnerHTML={this.createMarkup(this.props.content)} />
+        <h2 dangerouslySetInnerHTML={this._createMarkup(this.props.title)} />
+        <p dangerouslySetInnerHTML={this._createMarkup(this.props.content)} />
       </div>
     )
   }
