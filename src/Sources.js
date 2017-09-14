@@ -39,14 +39,14 @@ class Sources extends Component {
     const sourceNames = this.showSources()
 
     return (
-      <div>
+      <div className='mui-container'>
         <h1>News sources available</h1>
           <ul className='mui-list--inline'>{sourceNames}</ul>
           {
             this.state.visible ?
             (
               <div>
-                <h2>{this.state.source}</h2>
+                <h2 className='mui--z3'>{this.state.source}</h2>
                 <Posts {...this.state} />
               </div>
             ) :
